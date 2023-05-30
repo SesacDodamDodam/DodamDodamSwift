@@ -17,7 +17,6 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         setUpTabBar()
-        setDelegate()
         setNavigation()
     }
     
@@ -42,10 +41,6 @@ final class TabBarController: UITabBarController {
         
         self.hidesBottomBarWhenPushed = false
         viewWillLayoutSubviews()
-    }
-
-    private func setDelegate() {
-        delegate = self
     }
     
     private func setNavigation() {

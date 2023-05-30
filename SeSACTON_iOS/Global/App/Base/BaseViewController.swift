@@ -13,28 +13,11 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         render()
         configUI()
-        setupNavigationBar()
-        setupNavigationPopGesture()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-    
+
     func render() {}
     
     func configUI() {
         view.backgroundColor = .white
-    }
-    
-    func setupNavigationBar() {
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = TextLiterals.noneText
-    }
-    
-    func setupNavigationPopGesture() {
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
 }
