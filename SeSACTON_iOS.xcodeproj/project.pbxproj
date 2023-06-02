@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BCF58DC2A2A255300C7B266 /* PolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58DB2A2A255300C7B266 /* PolicyCell.swift */; };
+		6BCF58DE2A2A258E00C7B266 /* PolicyCellName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58DD2A2A258E00C7B266 /* PolicyCellName.swift */; };
+		6BCF58E22A2A25D300C7B266 /* PolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58E12A2A25D300C7B266 /* PolicyViewModel.swift */; };
+		6BCF58E42A2A260200C7B266 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58E32A2A260200C7B266 /* PolicyViewController.swift */; };
+		6BCF58E62A2A261800C7B266 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58E52A2A261800C7B266 /* HomeViewController.swift */; };
+		6BCF58E82A2A26FE00C7B266 /* FacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58E72A2A26FE00C7B266 /* FacilityView.swift */; };
+		6BCF58EA2A2A271000C7B266 /* FindPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF58E92A2A271000C7B266 /* FindPolicyView.swift */; };
 		9128AFF32A21D3FB00FB1252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128AFF22A21D3FB00FB1252 /* AppDelegate.swift */; };
 		9128AFF52A21D3FB00FB1252 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128AFF42A21D3FB00FB1252 /* SceneDelegate.swift */; };
 		9128AFF72A21D3FB00FB1252 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128AFF62A21D3FB00FB1252 /* TabBarController.swift */; };
@@ -24,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BCF58DB2A2A255300C7B266 /* PolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCell.swift; sourceTree = "<group>"; };
+		6BCF58DD2A2A258E00C7B266 /* PolicyCellName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCellName.swift; sourceTree = "<group>"; };
+		6BCF58E12A2A25D300C7B266 /* PolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewModel.swift; sourceTree = "<group>"; };
+		6BCF58E32A2A260200C7B266 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
+		6BCF58E52A2A261800C7B266 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6BCF58E72A2A26FE00C7B266 /* FacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
+		6BCF58E92A2A271000C7B266 /* FindPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPolicyView.swift; sourceTree = "<group>"; };
 		9128AFEF2A21D3FB00FB1252 /* SeSACTON_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACTON_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128AFF22A21D3FB00FB1252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9128AFF42A21D3FB00FB1252 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +67,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BCF58D82A2A253F00C7B266 /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				6BCF58D92A2A253F00C7B266 /* ViewModel */,
+				6BCF58DA2A2A253F00C7B266 /* View */,
+				6BCF58E32A2A260200C7B266 /* PolicyViewController.swift */,
+				6BCF58E52A2A261800C7B266 /* HomeViewController.swift */,
+			);
+			path = Policy;
+			sourceTree = "<group>";
+		};
+		6BCF58D92A2A253F00C7B266 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6BCF58E12A2A25D300C7B266 /* PolicyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6BCF58DA2A2A253F00C7B266 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6BCF58DB2A2A255300C7B266 /* PolicyCell.swift */,
+				6BCF58DD2A2A258E00C7B266 /* PolicyCellName.swift */,
+				6BCF58E72A2A26FE00C7B266 /* FacilityView.swift */,
+				6BCF58E92A2A271000C7B266 /* FindPolicyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9128AFE62A21D3FB00FB1252 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +155,7 @@
 		9128B00D2A233C6100FB1252 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				6BCF58D82A2A253F00C7B266 /* Policy */,
 				9128AFF62A21D3FB00FB1252 /* TabBarController.swift */,
 			);
 			path = Feature;
@@ -247,15 +292,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BCF58DE2A2A258E00C7B266 /* PolicyCellName.swift in Sources */,
 				9128B00B2A233C0E00FB1252 /* BaseUIView.swift in Sources */,
 				9128B0162A233D1E00FB1252 /* UIColor+Extension.swift in Sources */,
 				9128AFF72A21D3FB00FB1252 /* TabBarController.swift in Sources */,
 				9128B0182A233D3000FB1252 /* UIStackView+Extension.swift in Sources */,
+				6BCF58E62A2A261800C7B266 /* HomeViewController.swift in Sources */,
+				6BCF58DC2A2A255300C7B266 /* PolicyCell.swift in Sources */,
+				6BCF58E42A2A260200C7B266 /* PolicyViewController.swift in Sources */,
 				9128B0092A233BF300FB1252 /* BaseViewController.swift in Sources */,
 				9128AFF32A21D3FB00FB1252 /* AppDelegate.swift in Sources */,
 				9128AFF52A21D3FB00FB1252 /* SceneDelegate.swift in Sources */,
 				9128B01D2A233DA000FB1252 /* ImageLiterals.swift in Sources */,
 				9128B01A2A233D3C00FB1252 /* UIView+Extension.swift in Sources */,
+				6BCF58EA2A2A271000C7B266 /* FindPolicyView.swift in Sources */,
+				6BCF58E82A2A26FE00C7B266 /* FacilityView.swift in Sources */,
+				6BCF58E22A2A25D300C7B266 /* PolicyViewModel.swift in Sources */,
 				9128B0122A233CF600FB1252 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -378,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
