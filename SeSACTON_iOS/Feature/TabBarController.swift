@@ -10,40 +10,42 @@ import UIKit
 import SnapKit
 
 final class TabBarController: UITabBarController {
-    
-    fileprivate lazy var defaultTabBarHeight = { tabBar.frame.size.height }()
-    
+
+    //fileprivate lazy var defaultTabBarHeight = { tabBar.frame.size.height }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
         setUpTabBar()
         setNavigation()
+        navigationController?.navigationBar.isHidden = true
+        self.configureTabBar()
     }
-    
+
     private func setUpTabBar(){
-//        self.tabBar.tintColor = .brandColor
-//        self.tabBar.unselectedItemTintColor = .black
-//        self.tabBar.isTranslucent = false
-//        self.tabBar.backgroundColor = .white
-//
-//        PostsVC.title = TextLiterals.postsViewControllerTitle
-//        ListVC.title = TextLiterals.listViewControllerTitle
-//        storageVC.title = TextLiterals.storageViewControllerTitle
-//        settingVC.title = TextLiterals.settingViewControllerTitle
-//
-//        let ViewControllers:[UIViewController] = [PostsVC,ListVC,storageVC,settingVC]
-//        self.setViewControllers(ViewControllers, animated: true)
-//
-//        PostsVC.tabBarItem.image = ImageLiterals.homeTabIcon
-//        ListVC.tabBarItem.image = ImageLiterals.listTabIcon
-//        storageVC.tabBarItem.image = ImageLiterals.unSaveBookMarkIcon
-//        settingVC.tabBarItem.image = ImageLiterals.settingTabIcon
-        
-        self.hidesBottomBarWhenPushed = false
+        let policyVC = PolicyViewController()
+        let homeVC = HomeViewController()
+
+        homeVC.title = "홈"
+        policyVC.title = "정책찾기"
+        homeVC.tabBarItem.image = UIImage.init(systemName: "house.fill")
+        policyVC.tabBarItem.image = UIImage.init(systemName: "book")
+
+        let navigationHome = UINavigationController(rootViewController: homeVC)
+        let navigationPolicy = UINavigationController(rootViewController: policyVC)
+
+        setViewControllers([navigationHome, navigationPolicy], animated: false)
         viewWillLayoutSubviews()
     }
-    
+
     private func setNavigation() {
-        self.navigationItem.hidesBackButton = true
+        self.moreNavigationController.setNavigationBarHidden(false, animated: false)
+    }
+}
+extension TabBarController {
+    func configureTabBar() {
+        self.tabBar.tintColor = .label
+        self.tabBar.layer.masksToBounds = true
+        self.tabBar.layer.backgroundColor = UIColor.systemBackground.cgColor
+        self.tabBar.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
