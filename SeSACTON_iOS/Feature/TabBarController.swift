@@ -18,32 +18,38 @@ final class TabBarController: UITabBarController {
         self.navigationItem.hidesBackButton = true
         setUpTabBar()
         setNavigation()
+        self.configureTabBar()
     }
     
     private func setUpTabBar(){
-//        self.tabBar.tintColor = .brandColor
-//        self.tabBar.unselectedItemTintColor = .black
-//        self.tabBar.isTranslucent = false
-//        self.tabBar.backgroundColor = .white
-//
-//        PostsVC.title = TextLiterals.postsViewControllerTitle
-//        ListVC.title = TextLiterals.listViewControllerTitle
-//        storageVC.title = TextLiterals.storageViewControllerTitle
-//        settingVC.title = TextLiterals.settingViewControllerTitle
-//
-//        let ViewControllers:[UIViewController] = [PostsVC,ListVC,storageVC,settingVC]
-//        self.setViewControllers(ViewControllers, animated: true)
-//
-//        PostsVC.tabBarItem.image = ImageLiterals.homeTabIcon
-//        ListVC.tabBarItem.image = ImageLiterals.listTabIcon
-//        storageVC.tabBarItem.image = ImageLiterals.unSaveBookMarkIcon
-//        settingVC.tabBarItem.image = ImageLiterals.settingTabIcon
-        
+        let policyVC = PolicyViewController()
+        let homeVC = HomeViewController()
+
+        homeVC.title = "홈"
+        policyVC.title = "정책알기"
+        homeVC.tabBarItem.image = UIImage.init(systemName: "house.fill")
+        policyVC.tabBarItem.image = UIImage.init(systemName: "book")
+
+        homeVC.navigationItem.largeTitleDisplayMode = .always
+
+        let navigationHome = UINavigationController(rootViewController: homeVC)
+        let navigationPolicy = UINavigationController(rootViewController: policyVC)
+
+        navigationHome.navigationBar.prefersLargeTitles = true
+        setViewControllers([navigationHome, navigationPolicy], animated: false)
         self.hidesBottomBarWhenPushed = false
         viewWillLayoutSubviews()
     }
     
     private func setNavigation() {
         self.navigationItem.hidesBackButton = true
+    }
+}
+extension TabBarController {
+    func configureTabBar() {
+        self.tabBar.tintColor = .label
+        self.tabBar.layer.masksToBounds = true
+        self.tabBar.layer.backgroundColor = UIColor.systemBackground.cgColor
+        self.tabBar.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
