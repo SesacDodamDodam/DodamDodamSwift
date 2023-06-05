@@ -2,14 +2,14 @@
 //  PolicyCellName.swift
 //  SeSACTON_iOS
 //
-//  Created by JW on 2023/05/30.
+//  Created by JW on 2023/06/05.
 //
 
 import UIKit
 
 import SnapKit
 
-class PolicyCellName: UIView {
+class PolicyScript: UIView {
     var labelType: String
 
     // MARK: - properties
@@ -20,7 +20,7 @@ class PolicyCellName: UIView {
     }(UIButton())
     private lazy var cellNameLabel: UILabel = {
         $0.text = labelType
-        $0.font = .systemFont(ofSize: 22.0, weight: .regular)
+        $0.font = .systemFont(ofSize: 14.0, weight: .regular)
         return $0
     }(UILabel())
 
@@ -43,7 +43,7 @@ class PolicyCellName: UIView {
     }
 }
 
-extension PolicyCellName {
+extension PolicyScript {
     func setupViews() {
         [cellNamebutton, cellNameLabel].forEach { addSubview($0) }
         cellNamebutton.snp.makeConstraints {

@@ -18,9 +18,10 @@ class PolicyCell: UIView {
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
         stackView.spacing = 5.0
-        let PolicyNameView = PolicyCellName(frame: .zero, type: cellData.cellType)
+        let policyNameView1 = PolicyCellName(frame: .zero, type: cellData.policyMainLabel)
+        let policyNameView2 = PolicyScript(frame: .zero, type: cellData.policyFrom)
 
-        [PolicyNameView].forEach { stackView.addArrangedSubview($0) }
+        [policyNameView1, policyNameView2].forEach { stackView.addArrangedSubview($0) }
 
         return stackView
     }()

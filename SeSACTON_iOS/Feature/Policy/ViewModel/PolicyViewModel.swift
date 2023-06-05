@@ -7,11 +7,16 @@
 import UIKit
 
 struct PolicyData {
-    let cellType: String
+    let policyMainLabel: String
+    let policyFrom: String
+    let policyTagVector : String
+    let policyScript: String
 }
 
-let policyCellData1 = PolicyData(cellType: "서울시")
-let policyCellData2 = PolicyData(cellType: "서울시")
-let policyCellData3 = PolicyData(cellType: "서울시")
+let policyCellData1 = PolicyData(policyMainLabel: "서울시", policyFrom: "서울시여성가족재단", policyTagVector:"안녕하세요",policyScript: "안녕하세요")
+let policyCellData2 = PolicyData(policyMainLabel: "서울시", policyFrom: "서울시여성가족재단", policyTagVector:"안녕하세요",policyScript: "안녕하세요")
+let policyCellData3 = PolicyData(policyMainLabel: "서울시", policyFrom: "서울시여성가족재단", policyTagVector:"안녕하세요",policyScript: "안녕하세요")
+let policyCellData4 = PolicyData(policyMainLabel: "서울시", policyFrom: "서울시여성가족재단", policyTagVector:"안녕하세요",policyScript: "안녕하세요")
+let policyCellData5 = PolicyData(policyMainLabel: "서울시", policyFrom: "서울시여성가족재단", policyTagVector:"안녕하세요",policyScript: "안녕하세요")
 
-let dummyData = [policyCellData1, policyCellData2, policyCellData3]
+let dummyData = [policyCellData1, policyCellData2, policyCellData3, policyCellData4,policyCellData4]
