@@ -50,7 +50,7 @@ extension PolicyCellName {
             $0.edges.equalToSuperview()
         }
         cellNameLabel.snp.makeConstraints {
-            $0.top.left.right.bottom.equalToSuperview().inset(24.0)
+            $0.top.left.right.equalToSuperview().inset(24.0)
         }
     }
 }

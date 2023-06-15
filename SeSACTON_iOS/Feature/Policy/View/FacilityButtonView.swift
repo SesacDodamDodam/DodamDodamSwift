@@ -1,39 +1,45 @@
 //
-//  FacilityView.swift
+//  FacilityButtonView.swift
 //  SeSACTON_iOS
 //
-//  Created by JW on 2023/06/02.
+//  Created by JW on 2023/06/13.
 //
 
 import UIKit
 
-class FindPolicyView: UIView {
-    // MARK: - properties
-    let policyContentButton: UIButton = {
+protocol FacilityButtonViewDelegate: AnyObject {
+    func facilityButtonTapped()
+}
+
+class FacilityButtonView: UIView {
+    weak var delegate: FacilityButtonViewDelegate?
+
+    var facilityBoxButton: UIButton = {
         var config = UIButton.Configuration.plain()
-        config.title = "맞춤 정책"
-        config.image = UIImage(named: "policy")
+        config.title = "주변 시설"
+        config.image = UIImage(named: "facility")
         config.imagePlacement = .top
+        config.imagePadding = 3
         var button = UIButton(configuration: config)
-        //button.addTarget(nil, action: #selector(tapCellType), for: .touchUpInside)
+
         let handler: UIButton.ConfigurationUpdateHandler = { button in
             switch button.state {
             case [.selected, .highlighted]:
-                button.configuration?.title = "맞춤 정책"
+                button.configuration?.title = "주변 시설"
             case .selected:
-                button.configuration?.title = "맞춤 정책"
+                button.configuration?.title = "주변 시설"
                 button.configuration?.attributedTitle?.foregroundColor = .black
                 button.configuration?.attributedTitle?.font = .systemFont(ofSize: 12.0, weight: .bold)
             case .highlighted:
-                button.configuration?.title = "맞춤 정책"
+                button.configuration?.title = "주변 시설"
                 button.layer.cornerRadius = 8
                 button.backgroundColor = UIColor(hex: "#F4CAB8")
                 button.configuration?.attributedTitle?.foregroundColor = .black
                 button.configuration?.attributedTitle?.font = .systemFont(ofSize: 12.0, weight: .bold)
             case .disabled:
-                button.configuration?.title = "맞춤 정책"
+                button.configuration?.title = "주변 시설"
             default:
-                button.configuration?.title = "맞춤 정책"
+                button.configuration?.title = "주변 시설"
                 button.backgroundColor = .white
                 button.configuration?.attributedTitle?.font = .systemFont(ofSize: 12.0, weight: .bold)
                 button.configuration?.attributedTitle?.foregroundColor = .black
@@ -43,10 +49,6 @@ class FindPolicyView: UIView {
         return button
     }()
 
-    // MARK: - inits
-
-    // MARK: - init
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.cornerRadius = 8
@@ -55,21 +57,29 @@ class FindPolicyView: UIView {
         self.backgroundColor = .white
         setupViews()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - func
-    @objc func tapCellType() {
-        print("cell name을 터치했습니다.")
+    private func setupButton() {
+        facilityBoxButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
 
-}
-extension FindPolicyView {
-    func setupViews() {
-        [policyContentButton].forEach { addSubview($0) }
-        policyContentButton.snp.makeConstraints {
+    @objc private func buttonTapped() {
+        delegate?.facilityButtonTapped()
+    }
+
+    private func setupViews() {
+        addSubview(facilityBoxButton)
+        facilityBoxButton.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        setupButton()
+    }
+}
+extension FacilityButtonView: FacilityButtonViewDelegate {
+    func facilityButtonTapped() {
+        delegate?.facilityButtonTapped()
     }
 }
