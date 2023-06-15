@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AD47415A975A3CEC5FAB60A /* Pods_SeSACTON_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1992A1AF6A87DF8AAF4D9B /* Pods_SeSACTON_iOS.framework */; };
 		6B2448332A3AD6400076ED0C /* FindPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448322A3AD6400076ED0C /* FindPolicyViewController.swift */; };
 		6B2448352A3AD65B0076ED0C /* PlaceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448342A3AD65B0076ED0C /* PlaceName.swift */; };
 		6B2448372A3AD6730076ED0C /* FacilityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448362A3AD6730076ED0C /* FacilityButtonView.swift */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		536EBF9E7D7225DE5DDA4A13 /* Pods-SeSACTON_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACTON_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SeSACTON_iOS/Pods-SeSACTON_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5BE034E8CBB63CFB2CF3BC18 /* Pods-SeSACTON_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACTON_iOS.release.xcconfig"; path = "Target Support Files/Pods-SeSACTON_iOS/Pods-SeSACTON_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		6B2448322A3AD6400076ED0C /* FindPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPolicyViewController.swift; sourceTree = "<group>"; };
 		6B2448342A3AD65B0076ED0C /* PlaceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceName.swift; sourceTree = "<group>"; };
 		6B2448362A3AD6730076ED0C /* FacilityButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityButtonView.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		9128B0172A233D3000FB1252 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		9128B0192A233D3C00FB1252 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9128B01C2A233DA000FB1252 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
+		DF1992A1AF6A87DF8AAF4D9B /* Pods_SeSACTON_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSACTON_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +75,21 @@
 			files = (
 				9128B0232A233E6600FB1252 /* Moya in Frameworks */,
 				9128B0202A233E2300FB1252 /* SnapKit in Frameworks */,
+				6AD47415A975A3CEC5FAB60A /* Pods_SeSACTON_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DD7319D09683F5332FE9089 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF1992A1AF6A87DF8AAF4D9B /* Pods_SeSACTON_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6BCF58D82A2A253F00C7B266 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,8 @@
 			children = (
 				9128AFF12A21D3FB00FB1252 /* SeSACTON_iOS */,
 				9128AFF02A21D3FB00FB1252 /* Products */,
+				B47578C5A8F2E8C4A35FB819 /* Pods */,
+				1DD7319D09683F5332FE9089 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +244,16 @@
 			path = Literal;
 			sourceTree = "<group>";
 		};
+		B47578C5A8F2E8C4A35FB819 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				536EBF9E7D7225DE5DDA4A13 /* Pods-SeSACTON_iOS.debug.xcconfig */,
+				5BE034E8CBB63CFB2CF3BC18 /* Pods-SeSACTON_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9128B0032A21D3FE00FB1252 /* Build configuration list for PBXNativeTarget "SeSACTON_iOS" */;
 			buildPhases = (
+				B965AE81C427F801AE3EAFE7 /* [CP] Check Pods Manifest.lock */,
 				9128AFEB2A21D3FB00FB1252 /* Sources */,
 				9128AFEC2A21D3FB00FB1252 /* Frameworks */,
 				9128AFED2A21D3FB00FB1252 /* Resources */,
@@ -278,7 +304,7 @@
 			);
 			mainGroup = 9128AFE62A21D3FB00FB1252;
 			packageReferences = (
-				9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
 				9128B0212A233E6600FB1252 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 9128AFF02A21D3FB00FB1252 /* Products */;
@@ -301,6 +327,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B965AE81C427F801AE3EAFE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SeSACTON_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9128AFEB2A21D3FB00FB1252 /* Sources */ = {
@@ -462,6 +513,7 @@
 		};
 		9128B0042A21D3FE00FB1252 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536EBF9E7D7225DE5DDA4A13 /* Pods-SeSACTON_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -489,6 +541,7 @@
 		};
 		9128B0052A21D3FE00FB1252 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BE034E8CBB63CFB2CF3BC18 /* Pods-SeSACTON_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -538,7 +591,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -559,7 +612,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9128B01F2A233E2300FB1252 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 		9128B0222A233E6600FB1252 /* Moya */ = {
