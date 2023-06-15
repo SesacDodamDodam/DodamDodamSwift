@@ -91,11 +91,16 @@ final class PolicyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         data = dummyData
-        title = ""
-
         view.backgroundColor = .white
-        navigationController?.navigationBar.isHidden = true
         setupLayout()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            self.navigationController?.isNavigationBarHidden = false
     }
 
 }

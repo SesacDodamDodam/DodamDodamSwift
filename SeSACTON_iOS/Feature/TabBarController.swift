@@ -17,7 +17,6 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         setUpTabBar()
         setNavigation()
-        navigationController?.navigationBar.isHidden = true
         self.configureTabBar()
     }
 
@@ -34,6 +33,7 @@ final class TabBarController: UITabBarController {
         let navigationPolicy = UINavigationController(rootViewController: policyVC)
 
         setViewControllers([navigationHome, navigationPolicy], animated: false)
+        self.hidesBottomBarWhenPushed = false
         viewWillLayoutSubviews()
     }
 

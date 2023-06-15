@@ -21,6 +21,9 @@ enum ImageLiterals {
     static var downIcon: UIImage { .load(name: "downIcon") }
     static var mom2content: UIImage { .load(name: "mom2content") }
     static var mom3content: UIImage { .load(name: "mom3content") }
+    static var leftButton: UIImage { .load(name: "leftButton") }
+    static var webViewImage: UIImage { .load(name: "webViewImage") }
+    static var webViewText: UIImage { .load(name: "webViewText") }
 }
 
 extension UIImage {

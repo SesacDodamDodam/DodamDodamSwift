@@ -376,7 +376,7 @@ extension FindPolicyViewController {
             $0.edges.equalToSuperview()
         }
         findPolicyLabel1.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(104)
+            $0.top.equalToSuperview().inset(142)
             $0.leading.equalToSuperview().inset(22)
         }
         [topStackView,bottomStackView].forEach {selectStackView.addArrangedSubview($0)}
@@ -396,7 +396,7 @@ extension FindPolicyViewController {
             $0.height.equalTo(35)
         }
         showResultButton.snp.makeConstraints {
-            $0.top.equalTo(dropView.snp.bottom).offset(350)
+            $0.top.equalTo(dropView.snp.bottom).offset(300)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(345)
             $0.height.equalTo(48)
