@@ -1,0 +1,6 @@
+framework module Pods_SeSACTON_iOS {
+  umbrella header "Pods-SeSACTON_iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

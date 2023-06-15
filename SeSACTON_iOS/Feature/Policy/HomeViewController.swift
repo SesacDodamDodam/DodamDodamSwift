@@ -6,7 +6,6 @@
 //
 import UIKit
 import SnapKit
-import RxSwift
 
 final class HomeViewController: UIViewController {
     
