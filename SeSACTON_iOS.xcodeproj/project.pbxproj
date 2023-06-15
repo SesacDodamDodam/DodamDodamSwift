@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6AD47415A975A3CEC5FAB60A /* Pods_SeSACTON_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1992A1AF6A87DF8AAF4D9B /* Pods_SeSACTON_iOS.framework */; };
+		6B1E85982A3B8FEA00D9A01D /* FilterResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E85972A3B8FEA00D9A01D /* FilterResultViewController.swift */; };
+		6B1E859A2A3B900300D9A01D /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E85992A3B900300D9A01D /* ResultDetailViewController.swift */; };
 		6B2448332A3AD6400076ED0C /* FindPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448322A3AD6400076ED0C /* FindPolicyViewController.swift */; };
 		6B2448352A3AD65B0076ED0C /* PlaceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448342A3AD65B0076ED0C /* PlaceName.swift */; };
 		6B2448372A3AD6730076ED0C /* FacilityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2448362A3AD6730076ED0C /* FacilityButtonView.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		536EBF9E7D7225DE5DDA4A13 /* Pods-SeSACTON_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACTON_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SeSACTON_iOS/Pods-SeSACTON_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5BE034E8CBB63CFB2CF3BC18 /* Pods-SeSACTON_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACTON_iOS.release.xcconfig"; path = "Target Support Files/Pods-SeSACTON_iOS/Pods-SeSACTON_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		6B1E85972A3B8FEA00D9A01D /* FilterResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResultViewController.swift; sourceTree = "<group>"; };
+		6B1E85992A3B900300D9A01D /* ResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewController.swift; sourceTree = "<group>"; };
 		6B2448322A3AD6400076ED0C /* FindPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPolicyViewController.swift; sourceTree = "<group>"; };
 		6B2448342A3AD65B0076ED0C /* PlaceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceName.swift; sourceTree = "<group>"; };
 		6B2448362A3AD6730076ED0C /* FacilityButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityButtonView.swift; sourceTree = "<group>"; };
@@ -71,10 +75,9 @@
 		9128B0172A233D3000FB1252 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		9128B0192A233D3C00FB1252 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9128B01C2A233DA000FB1252 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
-		DF1992A1AF6A87DF8AAF4D9B /* Pods_SeSACTON_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSACTON_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E7ED432A3AD665009AA343 /* MomContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomContentsViewController.swift; sourceTree = "<group>"; };
 		91E7ED452A3B2762009AA343 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-
+		DF1992A1AF6A87DF8AAF4D9B /* Pods_SeSACTON_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSACTON_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				6B2448322A3AD6400076ED0C /* FindPolicyViewController.swift */,
 				91E7ED432A3AD665009AA343 /* MomContentsViewController.swift */,
 				91E7ED452A3B2762009AA343 /* WebViewController.swift */,
+				6B1E85972A3B8FEA00D9A01D /* FilterResultViewController.swift */,
+				6B1E85992A3B900300D9A01D /* ResultDetailViewController.swift */,
 			);
 			path = Policy;
 			sourceTree = "<group>";
@@ -265,7 +270,6 @@
 				536EBF9E7D7225DE5DDA4A13 /* Pods-SeSACTON_iOS.debug.xcconfig */,
 				5BE034E8CBB63CFB2CF3BC18 /* Pods-SeSACTON_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -324,7 +328,7 @@
 			);
 			mainGroup = 9128AFE62A21D3FB00FB1252;
 			packageReferences = (
-				9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9128B0212A233E6600FB1252 /* XCRemoteSwiftPackageReference "Moya" */,
 				9158618E2A2F1C5E00461F9A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
@@ -406,8 +410,10 @@
 				6BE73AF52A2DCEB20027F1B8 /* PolicyScript.swift in Sources */,
 				9128B0182A233D3000FB1252 /* UIStackView+Extension.swift in Sources */,
 				6BCF58E62A2A261800C7B266 /* HomeViewController.swift in Sources */,
+				6B1E859A2A3B900300D9A01D /* ResultDetailViewController.swift in Sources */,
 				6BCF58DC2A2A255300C7B266 /* PolicyCell.swift in Sources */,
 				6B2448352A3AD65B0076ED0C /* PlaceName.swift in Sources */,
+				6B1E85982A3B8FEA00D9A01D /* FilterResultViewController.swift in Sources */,
 				6BCF58E42A2A260200C7B266 /* PolicyViewController.swift in Sources */,
 				9128B0092A233BF300FB1252 /* BaseViewController.swift in Sources */,
 				9128AFF32A21D3FB00FB1252 /* AppDelegate.swift in Sources */,
@@ -631,7 +637,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -660,7 +666,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9128B01F2A233E2300FB1252 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = 9128B01E2A233E2300FB1252 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		9128B0222A233E6600FB1252 /* Moya */ = {
