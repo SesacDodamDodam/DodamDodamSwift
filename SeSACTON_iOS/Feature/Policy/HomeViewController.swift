@@ -62,15 +62,17 @@ final class HomeViewController: UIViewController {
         return label
     }()
     
-    let video1: UIButton = {
+    lazy var video1: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.video1, for: .normal)
+        button.addTarget(self, action: #selector(video1ButtonAction), for: .touchUpInside)
         return button
     }()
     
-    let video2: UIButton = {
+    lazy var video2: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.video2, for: .normal)
+        button.addTarget(self, action: #selector(video2ButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -124,11 +126,6 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = false
     }
     
     func render() {
@@ -250,6 +247,20 @@ final class HomeViewController: UIViewController {
     @objc
     func moveToNextViewButtonAction() {
         let nextVC = MomContentsViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc
+    func video1ButtonAction() {
+        let nextVC = WebViewController()
+        nextVC.url = "https://www.youtube.com/watch?v=Rl6_OzuG73s"
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc
+    func video2ButtonAction() {
+        let nextVC = WebViewController()
+        nextVC.url = "https://www.youtube.com/watch?v=sNWKAZMuoVI"
         navigationController?.pushViewController(nextVC, animated: true)
     }
 }
