@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import RxSwift
+import DropDown
 
 final class FindPolicyViewController: UIViewController {
     // MARK: property
@@ -15,8 +15,10 @@ final class FindPolicyViewController: UIViewController {
     var status2 = false
     var status3 = false
     var status4 = false
-    let placelist = PlaceName()
+    let placelist = ["서울", "강서구","동작구","성동구","은평구","중남구"]
+
     let contentView = UIView()
+
     private lazy var selectStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -231,35 +233,60 @@ final class FindPolicyViewController: UIViewController {
         button.tintColor = .black
         return button
     }()
-    var placePickerView = UIPickerView()
+
+    let dropdown = DropDown()
+    var dropView = UIView()
+    var tfInput = UITextField()
+    var ivIcon = UIImageView()
+    var btnSelect = UIButton()
 
     let showResultButton: UIButton = {
-        let button = UIButton()
-
+        var config = UIButton.Configuration.plain()
+        config.title = "결과 보기"
+        let button = UIButton(configuration: config)
+        let handler: UIButton.ConfigurationUpdateHandler = { button in
+            switch button.state {
+            case [.selected, .highlighted]:
+                button.layer.cornerRadius = 8
+                button.configuration?.attributedTitle?.font = .systemFont(ofSize: 14.0, weight: .semibold)
+                button.configuration?.attributedTitle?.foregroundColor = .white
+                button.configuration?.baseForegroundColor = UIColor(hex: "#CB8374")
+                button.configuration?.baseBackgroundColor = UIColor(hex: "#CB8374")
+                button.backgroundColor = UIColor(hex: "#CB8374")
+            case .selected:
+                button.configuration?.title = "결과 보기"
+                button.layer.cornerRadius = 8
+                button.configuration?.attributedTitle?.font = .systemFont(ofSize: 14.0, weight: .semibold)
+                button.configuration?.attributedTitle?.foregroundColor = .white
+                button.backgroundColor = UIColor(hex: "#CB8374")
+            case .highlighted:
+                button.configuration?.title = "결과 보기"
+                button.layer.cornerRadius = 8
+                button.configuration?.attributedTitle?.font = .systemFont(ofSize: 14.0, weight: .semibold)
+                button.configuration?.attributedTitle?.foregroundColor = .white
+                button.backgroundColor = UIColor(hex: "#CB8374")
+            default:
+                button.configuration?.title = "결과 보기"
+                button.backgroundColor = UIColor(hex: "#ECEEF0")
+                button.configuration?.attributedTitle?.font = .systemFont(ofSize: 14.0, weight: .semibold)
+                button.configuration?.attributedTitle?.foregroundColor = UIColor(hex: "#B5B9BD")
+                button.layer.cornerRadius = 8.0
+            }
+        }
+        button.configurationUpdateHandler = handler
+        button.addTarget(FindPolicyViewController.self, action: #selector(buttonTapped5), for: .touchDown)
         return button
     }()
 
     // MARK: - cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        placePickerView.dataSource = self
-        placePickerView.delegate = self
         view.backgroundColor = .white
-        self.hidesBottomBarWhenPushed = false
         title = "맞춤 정책"
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.hidesBottomBarWhenPushed = true
+        self.navigationController?.hidesBottomBarWhenPushed = false
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         setupLayout()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.hidesBottomBarWhenPushed = true
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.hidesBottomBarWhenPushed = false
+        initUI()
     }
 
     // MARK: - func
@@ -291,11 +318,60 @@ final class FindPolicyViewController: UIViewController {
             print(status4)
         }
     }
+    @objc private func buttonTapped5(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    func setDropdown() {
+        // dataSource로 ItemList를 연결
+        dropdown.dataSource = placelist
+
+        // anchorView를 통해 UI와 연결
+        dropdown.anchorView = self.dropView
+
+        // View를 갖리지 않고 View아래에 Item 팝업이 붙도록 설정
+        dropdown.bottomOffset = CGPoint(x: 0, y: dropView.bounds.height)
+
+        // Item 선택 시 처리
+        dropdown.selectionAction = { [weak self] (index, item) in
+            //선택한 Item을 TextField에 넣어준다.
+            self!.tfInput.text = item
+            self!.ivIcon.image = UIImage.init(named: "ic_arrow_down")
+        }
+
+        // 취소 시 처리
+        dropdown.cancelAction = { [weak self] in
+            //빈 화면 터치 시 DropDown이 사라지고 아이콘을 원래대로 변경
+            self!.ivIcon.image = UIImage.init(named: "ic_arrow_down")
+        }
+    }
+
+    // View 클릭 시 Action
+    @IBAction func dropdownClicked(_ sender: Any) {
+        dropdown.show() // 아이템 팝업을 보여준다.
+        // 아이콘 이미지를 변경하여 DropDown이 펼쳐진 것을 표현
+        self.ivIcon.image = UIImage.init(named: "ic_arrow_up")
+    }
+    func initUI() {
+        // DropDown View의 배경
+        dropView.backgroundColor = UIColor.init(hex: "#F1F1F1")
+        dropView.layer.cornerRadius = 8
+
+        DropDown.appearance().textColor = UIColor.black // 아이템 텍스트 색상
+        DropDown.appearance().selectedTextColor = UIColor.red // 선택된 아이템 텍스트 색상
+        DropDown.appearance().backgroundColor = UIColor.white // 아이템 팝업 배경 색상
+        DropDown.appearance().selectionBackgroundColor = UIColor.lightGray // 선택한 아이템 배경 색상
+        DropDown.appearance().setupCornerRadius(8)
+        dropdown.dismissMode = .automatic // 팝업을 닫을 모드 설정
+
+        tfInput.text = "선택해주세요." // 힌트 텍스트
+
+        ivIcon.tintColor = UIColor.gray
+    }
 }
-extension FindPolicyViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
+extension FindPolicyViewController {
     private func setupLayout() {
         view.addSubview(contentView)
-        contentView.addSubviews(findPolicyLabel1, selectStackView, findPolicyLabel2, placePickerView, showResultButton)
+        contentView.addSubviews(findPolicyLabel1, selectStackView, findPolicyLabel2,dropView,showResultButton)
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -313,35 +389,19 @@ extension FindPolicyViewController: UIPickerViewDataSource, UIPickerViewDelegate
         findPolicyLabel2.snp.makeConstraints {
             $0.top.equalTo(selectStackView.snp.bottom).offset(24)
             $0.leading.equalToSuperview().inset(22)
+            $0.height.equalTo(21)
         }
-        placePickerView.snp.makeConstraints {
+        dropView.snp.makeConstraints {
             $0.top.equalTo(findPolicyLabel2.snp.bottom).offset(13)
-            $0.width.equalTo(319)
-            $0.height.equalTo(50)
+            $0.height.equalTo(35)
         }
         showResultButton.snp.makeConstraints {
-            $0.top.equalTo(placePickerView.snp.bottom).offset(398)
+            $0.top.equalTo(dropView.snp.bottom).offset(350)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(345)
+            $0.height.equalTo(48)
         }
 
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return placelist.place.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return placelist.place[row].name
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        placePickerView.selectRow(0, inComponent: 1, animated: false)
-
-        //let cityIdx = placePickerView.selectedRow(inComponent: 0)
-        //let selectedCity = placelist.place[cityIdx].name
-
-        placePickerView.reloadComponent(1)
     }
 
 }

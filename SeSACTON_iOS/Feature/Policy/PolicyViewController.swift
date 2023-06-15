@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import RxSwift
 
 final class PolicyViewController: UIViewController {
     var data: [PolicyData] = []

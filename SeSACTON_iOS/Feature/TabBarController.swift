@@ -39,6 +39,7 @@ final class TabBarController: UITabBarController {
 
     private func setNavigation() {
         self.moreNavigationController.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.largeTitleDisplayMode = .never
     }
 }
 extension TabBarController {
