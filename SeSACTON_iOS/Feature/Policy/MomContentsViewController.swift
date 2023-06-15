@@ -10,6 +10,8 @@ import SnapKit
 
 final class MomContentsViewController: UIViewController {
     
+    private var isVideoButtonTapped = false
+    
     let momTopImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiterals.momTopImage
@@ -21,6 +23,20 @@ final class MomContentsViewController: UIViewController {
         view.backgroundColor = .lightGray
         view.alpha = 0.2
         return view
+    }()
+    
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiterals.leftButton, for: .normal)
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    let headTitle: UILabel = {
+        let label = UILabel()
+        label.text = "마음 돌봄"
+        label.font = UIFont(name: "Avenir-Black", size: 16)
+        return label
     }()
     
     let firstLabel: UILabel = {
@@ -58,9 +74,10 @@ final class MomContentsViewController: UIViewController {
         return label
     }()
     
-    let video11PlayButton: UIButton = {
+    lazy var video11PlayButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.playIcon, for: .normal)
+        button.addTarget(self, action: #selector(playButtonDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -131,6 +148,8 @@ final class MomContentsViewController: UIViewController {
     
     func render() {
         view.addSubviews(
+            backButton,
+            headTitle,
             momTopImageView,
             lineView,
             firstLabel,
@@ -149,8 +168,21 @@ final class MomContentsViewController: UIViewController {
             lastDownButton
         )
         
+        backButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(80)
+            $0.size.equalTo(44)
+            $0.leading.equalToSuperview()
+        }
+        view.bringSubviewToFront(backButton)
+        
+        headTitle.snp.makeConstraints {
+            $0.centerY.equalTo(backButton)
+            $0.centerX.equalToSuperview()
+        }
+        view.bringSubviewToFront(headTitle)
+        
         momTopImageView.snp.makeConstraints {
-            $0.height.equalTo(365)
+            $0.height.equalTo(380)
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
@@ -173,41 +205,43 @@ final class MomContentsViewController: UIViewController {
         }
         
         video11ImageView.snp.makeConstraints {
-            $0.top.equalTo(firstLabel.snp.bottom).offset(20)
+            $0.top.equalTo(firstLabel.snp.bottom).offset(0)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(82)
+            $0.height.equalTo(0)
         }
         
         video11Text.snp.makeConstraints {
             $0.top.equalTo(firstLabel.snp.bottom).offset(35)
             $0.leading.equalToSuperview().inset(38)
+            $0.height.equalTo(0)
         }
         
         video11SubText.snp.makeConstraints {
             $0.top.equalTo(video11Text.snp.bottom).offset(8)
             $0.leading.equalToSuperview().inset(38)
+            $0.height.equalTo(0)
         }
         
         video11PlayButton.snp.makeConstraints {
             $0.top.equalTo(downButton.snp.bottom).offset(44)
             $0.trailing.equalToSuperview().inset(40)
-            $0.size.equalTo(34)
+            $0.size.equalTo(0)
         }
         
         video12ImageView.snp.makeConstraints {
             $0.top.equalTo(video11ImageView.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(82)
+            $0.height.equalTo(0)
         }
         
         video13ImageView.snp.makeConstraints {
             $0.top.equalTo(video12ImageView.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(82)
+            $0.height.equalTo(0)
         }
         
         lineView2.snp.makeConstraints {
-            $0.top.equalTo(video13ImageView.snp.bottom).offset(16)
+            $0.top.equalTo(video13ImageView.snp.bottom).offset(5)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(8)
         }
@@ -242,7 +276,94 @@ final class MomContentsViewController: UIViewController {
     }
     
     @objc
+    func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
     func downButtonTapped() {
-        
+        UIView.animate(withDuration: 2, animations: {
+            if self.isVideoButtonTapped {
+                self.isVideoButtonTapped.toggle()
+                self.video11ImageView.snp.remakeConstraints {
+                    $0.top.equalTo(self.firstLabel.snp.bottom).offset(20)
+                    $0.leading.trailing.equalToSuperview().inset(20)
+                    $0.height.equalTo(0)
+                }
+                
+                self.video11Text.snp.remakeConstraints {
+                    $0.top.equalTo(self.firstLabel.snp.bottom).offset(35)
+                    $0.leading.equalToSuperview().inset(38)
+                    $0.height.equalTo(0)
+                }
+                
+                self.video11SubText.snp.remakeConstraints {
+                    $0.top.equalTo(self.video11Text.snp.bottom).offset(8)
+                    $0.leading.equalToSuperview().inset(38)
+                    $0.height.equalTo(0)
+                }
+                
+                self.video11PlayButton.snp.remakeConstraints {
+                    $0.top.equalTo(self.downButton.snp.bottom).offset(44)
+                    $0.trailing.equalToSuperview().inset(40)
+                    $0.size.equalTo(0)
+                }
+                
+                self.video12ImageView.snp.remakeConstraints {
+                    $0.top.equalTo(self.video11ImageView.snp.bottom).offset(12)
+                    $0.leading.trailing.equalToSuperview().inset(20)
+                    $0.height.equalTo(0)
+                }
+                
+                self.video13ImageView.snp.remakeConstraints {
+                    $0.top.equalTo(self.video12ImageView.snp.bottom).offset(12)
+                    $0.leading.trailing.equalToSuperview().inset(20)
+                    $0.height.equalTo(0)
+                }
+            } else {
+                self.isVideoButtonTapped.toggle()
+                self.video11ImageView.snp.remakeConstraints {
+                    $0.top.equalTo(self.firstLabel.snp.bottom).offset(20)
+                    $0.leading.trailing.equalToSuperview().inset(10)
+                    $0.height.equalTo(92)
+                }
+                
+                self.video11Text.snp.remakeConstraints {
+                    $0.top.equalTo(self.firstLabel.snp.bottom).offset(35)
+                    $0.leading.equalToSuperview().inset(38)
+                    $0.height.equalTo(20)
+                }
+                
+                self.video11SubText.snp.remakeConstraints {
+                    $0.top.equalTo(self.video11Text.snp.bottom).offset(8)
+                    $0.leading.equalToSuperview().inset(38)
+                    $0.height.equalTo(15)
+                }
+                
+                self.video11PlayButton.snp.remakeConstraints {
+                    $0.top.equalTo(self.downButton.snp.bottom).offset(44)
+                    $0.trailing.equalToSuperview().inset(40)
+                    $0.size.equalTo(34)
+                }
+                
+                self.video12ImageView.snp.remakeConstraints {
+                    $0.top.equalTo(self.video11ImageView.snp.bottom).offset(12)
+                    $0.leading.trailing.equalToSuperview().inset(20)
+                    $0.height.equalTo(82)
+                }
+                
+                self.video13ImageView.snp.remakeConstraints {
+                    $0.top.equalTo(self.video12ImageView.snp.bottom).offset(12)
+                    $0.leading.trailing.equalToSuperview().inset(20)
+                    $0.height.equalTo(82)
+                }
+            }
+        })
+    }
+    
+    @objc
+    func playButtonDidTap() {
+        let nextVC = WebViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
