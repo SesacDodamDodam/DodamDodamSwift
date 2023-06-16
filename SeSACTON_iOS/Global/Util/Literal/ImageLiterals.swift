@@ -24,6 +24,11 @@ enum ImageLiterals {
     static var leftButton: UIImage { .load(name: "leftButton") }
     static var webViewImage: UIImage { .load(name: "webViewImage") }
     static var webViewText: UIImage { .load(name: "webViewText") }
+    static var lineIcon: UIImage { .load(name: "line1") }
+    static var arrowUp: UIImage { .load(name: "ic_arrow_up") }
+    static var arrowDown: UIImage { .load(name: "ic_arrow_down") }
+    static var policyText: UIImage { .load(name: "policy1") }
+    static var policyViewText: UIImage { .load(name: "policyViewText") }
 }
 
 extension UIImage {

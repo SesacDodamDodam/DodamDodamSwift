@@ -19,7 +19,6 @@ final class TabBarController: UITabBarController {
         setNavigation()
         self.configureTabBar()
     }
-
     private func setUpTabBar(){
         let policyVC = PolicyViewController()
         let homeVC = HomeViewController()
